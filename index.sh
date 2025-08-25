@@ -17,7 +17,7 @@ features=()
 if [ "$ID" = "debian" ]; then
   features+=("mirrors")
 elif [ "$ID" = "arch" ]; then
-  features+=("mirrors")
+  features+=("mirrors" "archlinuxcn" "chaotic-aur" "paru")
 fi
 
 echo
@@ -67,35 +67,89 @@ EOF
     fi
   elif [ "$ID" = "arch" ]; then
     cat <<EOF | sudo tee /etc/pacman.d/mirrorlist
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.shanghaitech.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.aliyun.com/archlinux/\$repo/os/\$arch
-Server = https://mirrors.bfsu.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.cqu.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.hit.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.hust.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.jcut.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.jlu.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.jxust.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.neusoft.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.nju.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.njupt.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirror.nyist.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.qlu.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.qvq.net.cn/archlinux/\$repo/os/\$arch
-Server = https://mirror.redrock.team/archlinux/\$repo/os/\$arch
-Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.ustc.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.wsyu.edu.cn/archlinux/\$repo/os/\$arch
-Server = https://mirrors.xjtu.edu.cn/archlinux/\$repo/os/\$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.shanghaitech.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.aliyun.com/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.bfsu.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.cqu.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.hit.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.hust.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.jcut.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.jlu.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.jxust.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.neusoft.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.nju.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.njupt.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirror.nyist.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.qlu.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.qvq.net.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirror.redrock.team/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.ustc.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.wsyu.edu.cn/archlinux/\$repo/os/\\$arch
+Server = https://mirrors.xjtu.edu.cn/archlinux/\$repo/os/\\$arch
 EOF
   fi
 elif [ "$selected_feature" = "archlinuxcn" ]; then
-  echo wip
-elif [ "$selected_feature" = "paru" ]; then
-  echo wip
+  cat <<EOF | sudo tee /etc/pacman.d/archlinuxcn-mirrorlist
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.aliyun.com/archlinuxcn/\$arch
+Server = https://mirrors.bfsu.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.cloud.tencent.com/archlinuxcn/\$arch
+Server = https://mirrors.cernet.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.pku.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.163.com/archlinux-cn/\$arch
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.hit.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.jlu.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.zju.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.cqu.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.cqupt.edu.cn/archlinuxcn/\$arch
+Server = https://mirror.sjtu.edu.cn/archlinux-cn/\$arch
+Server = https://mirrors.nju.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.sustech.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.hust.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.wsyu.edu.cn/archlinuxcn/\$arch
+Server = https://mirror.bjtu.edu.cn/archlinuxcn/\$arch
+Server = https://mirror.lzu.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.xjtu.edu.cn/archlinuxcn/\$arch
+Server = https://mirror.nyist.edu.cn/archlinuxcn/\$arch
+Server = https://mirrors.shanghaitech.edu.cn/archlinuxcn/\$arch
+Server = https://mirror.iscas.ac.cn/archlinuxcn/\$arch
+Server = https://mirrors.cicku.me/archlinuxcn/\$arch
+Server = https://archlinux.ccns.ncku.edu.tw/archlinuxcn/\$arch
+Server = https://mirror.twds.com.tw/archlinuxcn/\$arch
+Server = https://mirrors.xtom.hk/archlinuxcn/\$arch
+Server = https://mirrors.xtom.sg/archlinuxcn/\$arch
+Server = https://mirrors.xtom.us/archlinuxcn/\$arch
+Server = https://mirrors.xtom.nl/archlinuxcn/\$arch
+Server = https://mirrors.xtom.de/archlinuxcn/\$arch
+Server = https://mirrors.xtom.jp/archlinuxcn/\$arch
+Server = https://mirrors.xtom.au/archlinuxcn/\$arch
+Server = https://mirrors.ocf.berkeley.edu/archlinuxcn/\$arch
+EOF
+  cat <<EOF | sudo tee -a /etc/pacman.conf
+[archlinuxcn]
+Include = /etc/pacman.d/archlinuxcn-mirrorlist
+EOF
 elif [ "$selected_feature" = "chaotic-aur" ]; then
-  echo wip
+  sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+  sudo pacman-key --lsign-key 3056513887B78AEB
+  sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+  sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+  cat <<EOF | sudo tee -a /etc/pacman.conf
+[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist
+EOF
+elif [ "$selected_feature" = "paru" ]; then
+  sudo pacman -S --needed paru || {
+    sudo pacman -S --needed base-devel
+    cd /tmp
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si
+  }
+  sudo sed -i 's/#SkipReview/SkipReview/' /etc/paru.conf
 else
   echo "$(tput setaf 1)Feature not implemented yet.$(tput sgr0)"
   exit 1
