@@ -3,5 +3,5 @@
 Usage:
 
 ```sh
-curl 2y.nz
+curl 2y.nz | sh
 ```
