@@ -4,6 +4,10 @@ set -e
 
 . /etc/os-release
 
+if ! command -v tput &> /dev/null; then
+  alias tput="true"
+fi
+
 if [ ! -t 0 ]; then
   tput cuu 3
   tput el
